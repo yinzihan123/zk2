@@ -1,0 +1,6 @@
+Nacos:
+  Host: "115.190.158.240"
+  Port: 8848
+  NameSpace: ""
+  Group: "DEFAULT_GROUP"
+  DataId: "zk2"

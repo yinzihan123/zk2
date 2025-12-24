@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./";
+
+message RegisterReq {
+  string mobile = 1;
+  string password=2;
+}
+
+message RegisterResp {
+  string token = 1;
+}
+message LoginReq{
+  string mobile=1;
+  string password=2;
+}
+message LoginResp{
+  string token=1;
+  string mobile=2;
+  string password=3;
+}
+message FindGoodListReq{
+
+}
+message FindGoodListResp{
+  repeated GoodList list=1;
+}
+message GoodList{
+  int64 id=1;
+  string name=2;
+  float price=3;
+  float originalPrice=4;
+  float salesVolume=5;
+  string shopName=6;
+  int64 inventory=7;
+  string pic=8;
+}
+message FindBannerListReq{
+
+}
+message FindBannerListResp{
+  repeated BannerList list=1;
+}
+message BannerList{
+  int64 id=1;
+  string pic=2;
+  string title=3;
+}
+service Shop {
+  rpc register(RegisterReq) returns (RegisterResp);
+  rpc login(LoginReq) returns(LoginResp);
+  rpc findGoodList(FindGoodListReq) returns(FindGoodListResp);
+  rpc findBannerList(FindBannerListReq) returns(FindBannerListResp);
+}
